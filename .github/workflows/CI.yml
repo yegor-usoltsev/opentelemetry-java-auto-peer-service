@@ -6,31 +6,24 @@ on:
     tags: [ "v[0-9]+.[0-9]+.[0-9]+" ]
   workflow_dispatch: { }
 
-permissions:
-  contents: write
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 8
-
       - uses: gradle/actions/setup-gradle@v4
-
       - run: gradle build
-
       - uses: actions/upload-artifact@v4
         with:
           name: jar
           path: "build/libs/${{ github.event.repository.name }}.jar"
-
       - if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
