@@ -3,6 +3,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     `java-library`
+    jacoco
 }
 
 repositories {
@@ -33,4 +34,13 @@ tasks.test {
         showExceptions = true
     }
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    reports {
+        html.required = true
+        xml.required = true
+    }
+    dependsOn(tasks.test)
 }

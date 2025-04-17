@@ -1,6 +1,7 @@
 # opentelemetry-java-auto-peer-service
 
 [![Build Status](https://github.com/yegor-usoltsev/opentelemetry-java-auto-peer-service/actions/workflows/ci.yml/badge.svg)](https://github.com/yegor-usoltsev/opentelemetry-java-auto-peer-service/actions)
+[![Codecov](https://codecov.io/github/yegor-usoltsev/opentelemetry-java-auto-peer-service/graph/badge.svg?token=0MC613WZN0)](https://codecov.io/github/yegor-usoltsev/opentelemetry-java-auto-peer-service)
 [![GitHub Release](https://img.shields.io/github/v/release/yegor-usoltsev/opentelemetry-java-auto-peer-service?sort=semver)](https://github.com/yegor-usoltsev/opentelemetry-java-auto-peer-service/releases)
 
 An extension for the OpenTelemetry Java agent designed to enrich HTTP client spans. It does this by automatically setting the `peer.service` attribute based on the `server.address` attribute.
