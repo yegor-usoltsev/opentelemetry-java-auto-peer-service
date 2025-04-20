@@ -12,6 +12,15 @@
         "maven"
       ],
       "matchPackagePrefixes": [
+        "io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api"
+      ],
+      "versioning": "loose"
+    },
+    {
+      "matchDatasources": [
+        "maven"
+      ],
+      "matchPackagePrefixes": [
         "org.mockito:mockito-core"
       ],
       "allowedVersions": "<5.0.0"
