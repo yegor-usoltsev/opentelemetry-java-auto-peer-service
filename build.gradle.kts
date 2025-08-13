@@ -11,8 +11,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api:2.17.1-alpha")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.13.3")
+    compileOnly("io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api:2.18.1-alpha")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.13.4")
     testImplementation("org.mockito:mockito-core:4.11.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
@@ -24,7 +24,7 @@ configurations {
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(8)
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 tasks.test {
