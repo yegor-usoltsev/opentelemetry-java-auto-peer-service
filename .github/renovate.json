@@ -17,15 +17,6 @@
       "matchPackageNames": [
         "io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api{/,}**"
       ]
-    },
-    {
-      "matchDatasources": [
-        "maven"
-      ],
-      "allowedVersions": "<5.0.0",
-      "matchPackageNames": [
-        "org.mockito:mockito-core{/,}**"
-      ]
     }
   ]
 }
