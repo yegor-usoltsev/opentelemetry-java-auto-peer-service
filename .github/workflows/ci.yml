@@ -12,7 +12,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
@@ -23,7 +23,7 @@ jobs:
         with:
           name: jar
           path: "build/libs/${{ github.event.repository.name }}.jar"
-      - uses: codecov/codecov-action@v6
+      - uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - if: startsWith(github.ref, 'refs/tags/v')

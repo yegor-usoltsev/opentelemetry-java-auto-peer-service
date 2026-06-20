@@ -11,8 +11,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api:2.27.0-alpha")
-    testImplementation(platform("org.junit:junit-bom:6.0.3"))
+    compileOnly("io.opentelemetry.javaagent:opentelemetry-javaagent-extension-api:2.29.0-alpha")
+    testImplementation(platform("org.junit:junit-bom:6.1.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.mockito:mockito-core:5.23.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
