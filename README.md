@@ -12,7 +12,7 @@ The build produces a single JAR: [`opentelemetry-java-auto-peer-service.jar`](ht
 
 ## Usage
 
-Download the latest JAR and launch your application with the following command:
+Requires Java 17 or later and an OpenTelemetry Java agent JAR. Download the extension and add it when launching your application:
 
 ```bash
 wget https://github.com/yegor-usoltsev/opentelemetry-java-auto-peer-service/releases/latest/download/opentelemetry-java-auto-peer-service.jar
@@ -22,13 +22,11 @@ java -javaagent:opentelemetry-javaagent.jar \
      -jar app.jar
 ```
 
-## Versioning
+## Behavior
 
-This project uses [Semantic Versioning](https://semver.org)
+For a `CLIENT` span, the extension sets `peer.service` to `server.address` when `peer.service` is unset and `server.address` is present. It leaves non-client spans and existing `peer.service` values unchanged.
 
-## Contributing
-
-Pull requests are welcome. For major changes, please [open an issue](https://github.com/yegor-usoltsev/opentelemetry-java-auto-peer-service/issues/new) first to discuss what you would like to change. Please make sure to update tests as appropriate.
+For example, a client span with `server.address = inventory.example.com` receives `peer.service = inventory.example.com`.
 
 ## License
 
