@@ -13,11 +13,16 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: 25
       - uses: gradle/actions/setup-gradle@v6
+        with:
+          # Tag builds publish the jar, so they must not restore a cache that branch builds wrote.
+          cache-disabled: ${{ startsWith(github.ref, 'refs/tags/') }}
       - run: gradle build
       - uses: actions/upload-artifact@v7
         with:
@@ -27,6 +32,16 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@v3 # zizmor: ignore[superfluous-actions] it attaches the jar to the release in one step
         with:
           files: "build/libs/${{ github.event.repository.name }}.jar"
+
+  prek:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: j178/prek-action@v3.0.1
