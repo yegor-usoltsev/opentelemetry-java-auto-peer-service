@@ -14,7 +14,7 @@
       "matchDatasources": [
         "java-version"
       ],
-      "allowedVersions": "<18"
+      "allowedVersions": "/^17(?:[.+-]|$)/"
     },
     {
       "matchDatasources": [
