@@ -12,6 +12,12 @@
   "packageRules": [
     {
       "matchDatasources": [
+        "java-version"
+      ],
+      "allowedVersions": "<18"
+    },
+    {
+      "matchDatasources": [
         "maven"
       ],
       "versioning": "loose",
